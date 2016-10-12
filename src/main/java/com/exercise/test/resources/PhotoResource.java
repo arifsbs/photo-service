@@ -10,6 +10,12 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
+import com.exercise.test.entity.ImageContainer;
+import com.exercise.test.entity.ImageEntity;
+import com.exercise.test.entity.Media;
+import com.google.gson.Gson;
+
+
 /**
  * Created by sysdeva5 on 12/10/2016.
  */
@@ -25,8 +31,16 @@ public class PhotoResource {
     }
 
     @GET
-    public List getImages() {
-        
-        return null;
-    }
+    public List<ImageEntity> getImages() {
+
+        WebTarget webTarget =
+                client.target("https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=java&nojsoncallback=?");
+        Invocation.Builder invocationBuilder =  webTarget.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+
+        String jsonAsString = response.readEntity(String.class);
+        Gson gson = new Gson();
+        ImageContainer imageContainer = gson.fromJson( jsonAsString, ImageContainer.class );
+
+        return imageContainer.getItems();    }
 }
