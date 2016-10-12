@@ -9,6 +9,7 @@ import io.dropwizard.setup.Environment;
 import com.exercise.test.resources.PhotoResource;
 import javax.ws.rs.client.Client;
 import io.dropwizard.client.JerseyClientBuilder;
+import com.exercise.test.filter.CorsFilter;
 
 /**
  * Created by sysdeva5 on 12/10/2016.
@@ -66,6 +67,8 @@ public class PhotoServiceApplication extends Application<PhotoConfiguration> {
         final Client client = new JerseyClientBuilder(environment).using(configuration.getJerseyClientConfiguration())
                 .build(getName());
         environment.jersey().register(new PhotoResource(client));
+
+        CorsFilter.insecure(environment);
 
     }
 }
