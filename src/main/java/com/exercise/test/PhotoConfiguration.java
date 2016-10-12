@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * Created by sysdeva5 on 12/10/2016.
+ * Created by Arif Shaikh on 12/10/2016.
  */
 public class PhotoConfiguration extends Configuration {
 

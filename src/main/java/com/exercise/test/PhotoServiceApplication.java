@@ -12,7 +12,7 @@ import io.dropwizard.client.JerseyClientBuilder;
 import com.exercise.test.filter.CorsFilter;
 
 /**
- * Created by sysdeva5 on 12/10/2016.
+ * Created by Arif Shaikh on 12/10/2016.
  *
  * This is the main entry class for this photo service.
  */

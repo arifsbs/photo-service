@@ -7,7 +7,7 @@ import javax.servlet.FilterRegistration;
 import java.util.EnumSet;
 
 /**
- * Created by sysdeva5 on 12/10/2016.
+ * Created by Arif Shaikh on 12/10/2016.
  *
  * This class added configuration for Cross-Origin Resource Sharing
  */
